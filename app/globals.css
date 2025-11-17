@@ -1,0 +1,175 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* EcoGrow-Tech Digital Biology theme colors */
+  --background: #0E1E14;
+  --foreground: #BFFFE2;
+  --card: #1A2F20;
+  --card-foreground: #BFFFE2;
+  --popover: #1A2F20;
+  --popover-foreground: #BFFFE2;
+  --primary: #9DFF65;
+  --primary-foreground: #0E1E14;
+  --secondary: #6AF4F0;
+  --secondary-foreground: #0E1E14;
+  --muted: #2A3F30;
+  --muted-foreground: #CBD5D1;
+  --accent: #9DFF65;
+  --accent-foreground: #0E1E14;
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: #BFFFE2;
+  --border: #2A3F30;
+  --input: #1A2F20;
+  --ring: #9DFF65;
+  --chart-1: #9DFF65;
+  --chart-2: #6AF4F0;
+  --chart-3: #BFFFE2;
+  --chart-4: #CBD5D1;
+  --chart-5: #2A3F30;
+  --radius: 0.75rem;
+  --sidebar: #1A2F20;
+  --sidebar-foreground: #BFFFE2;
+  --sidebar-primary: #9DFF65;
+  --sidebar-primary-foreground: #0E1E14;
+  --sidebar-accent: #6AF4F0;
+  --sidebar-accent-foreground: #0E1E14;
+  --sidebar-border: #2A3F30;
+  --sidebar-ring: #9DFF65;
+  
+  /* Custom neural glow colors */
+  --neural-lime: #9DFF65;
+  --neural-cyan: #6AF4F0;
+  --neural-mint: #BFFFE2;
+}
+
+.dark {
+  --background: #0E1E14;
+  --foreground: #BFFFE2;
+  --card: #1A2F20;
+  --card-foreground: #BFFFE2;
+  --popover: #1A2F20;
+  --popover-foreground: #BFFFE2;
+  --primary: #9DFF65;
+  --primary-foreground: #0E1E14;
+  --secondary: #6AF4F0;
+  --secondary-foreground: #0E1E14;
+  --muted: #2A3F30;
+  --muted-foreground: #CBD5D1;
+  --accent: #9DFF65;
+  --accent-foreground: #0E1E14;
+  --destructive: oklch(0.396 0.141 25.723);
+  --destructive-foreground: #BFFFE2;
+  --border: #2A3F30;
+  --input: #1A2F20;
+  --ring: #9DFF65;
+  --chart-1: #9DFF65;
+  --chart-2: #6AF4F0;
+  --chart-3: #BFFFE2;
+  --chart-4: #CBD5D1;
+  --chart-5: #2A3F30;
+  --sidebar: #1A2F20;
+  --sidebar-foreground: #BFFFE2;
+  --sidebar-primary: #9DFF65;
+  --sidebar-primary-foreground: #0E1E14;
+  --sidebar-accent: #6AF4F0;
+  --sidebar-accent-foreground: #0E1E14;
+  --sidebar-border: #2A3F30;
+  --sidebar-ring: #9DFF65;
+}
+
+@theme inline {
+  /* Updated to Orbitron and Inter fonts */
+  --font-sans: 'Inter', 'Geist Fallback', system-ui, sans-serif;
+  --font-display: 'Orbitron', 'Geist Fallback', system-ui, sans-serif;
+  --font-mono: 'Geist Mono', 'Geist Mono Fallback';
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  
+  /* Custom neural glow animations */
+  @keyframes neural-pulse {
+    0%, 100% {
+      opacity: 0.3;
+      filter: blur(0px);
+    }
+    50% {
+      opacity: 1;
+      filter: blur(4px);
+    }
+  }
+  
+  @keyframes neural-flow {
+    0% {
+      stroke-dashoffset: 1000;
+    }
+    100% {
+      stroke-dashoffset: 0;
+    }
+  }
+  
+  @keyframes bio-glow {
+    0%, 100% {
+      box-shadow: 0 0 20px rgba(157, 255, 101, 0.3);
+    }
+    50% {
+      box-shadow: 0 0 40px rgba(157, 255, 101, 0.6), 0 0 60px rgba(106, 244, 240, 0.3);
+    }
+  }
+  
+  .neural-pulse {
+    animation: neural-pulse 3s ease-in-out infinite;
+  }
+  
+  .bio-glow {
+    animation: bio-glow 4s ease-in-out infinite;
+  }
+  
+  .font-display {
+    font-family: var(--font-display);
+  }
+}
